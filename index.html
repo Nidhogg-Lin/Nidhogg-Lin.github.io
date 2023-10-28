@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>web版通讯录</title>
+
+</head>
+<body>
+<h2>联系人列表如下：</h2>
+<form action="/chick">
+    <p>请输入需查找的联系人名称<input name="name_date"></p>
+    <p><button>提交</button></p>
+</form>
+<hr>
+<table border="0.3" style="font-family:楷体">
+<tr>
+<th width="50" align="center">联系人名称</th><th width="200" align="center">学号</th><th width="200" align="center">号码</th>
+<th width="250" align="center">电子邮箱</th>
+    <th width="100" align="center">添加时间</th>
+{%for comment in date%}
+<tr>
+    <td align="center">{{comment['name']}}</td >
+    <td align="center">{{comment['StudentID']}}</td>
+    <td align="center">{{comment['num']}}</td>
+    <td align="center">{{comment['Email']}}</td>
+    <td align="center">{{comment['time']}}</td>
+    <td> <a href="/delete?id={{comment['id']}}">删除这名联系人的信息</a></td>
+     {%endfor%}
+</tr>
+
+</table>
+<h3>添加联系人</h3>
+ <form action="/add_connector">
+     <p>请输入联系人姓名<input type="text" name="name"></p>
+     <p>请输入联系人学号<input type="text" name="StudentID" size="50"></p>
+     <p>请输入联系人号码<input type="text" name="num" size="50"></p>
+     <p>请输入联系人电子邮箱<input type="email" name="Email" size="55"></p>
+     <p><button>提交</button></p>
+    </form>
+<img src="111.png" width="350px" height="250">
+</body>
+</html>
